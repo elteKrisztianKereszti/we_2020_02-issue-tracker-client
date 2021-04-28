@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { IssueListComponent } from './issue-list/issue-list.component';
 import { IssueDetailComponent } from './issue-detail/issue-detail.component';
-import { IssueNewComponent } from './issue-new/issue-new.component';
+import { IssueFormComponent } from './issue-form/issue-form.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +15,7 @@ import { IssueNewComponent } from './issue-new/issue-new.component';
     MainPageComponent,
     IssueListComponent,
     IssueDetailComponent,
-    IssueNewComponent
+    IssueFormComponent
   ],
   imports: [
     BrowserModule,
