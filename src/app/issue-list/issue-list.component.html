@@ -1,7 +1,8 @@
 <h2 class="display-2 my-3">My issues</h2>
 <p><a class="btn btn-primary" href="#" role="button" routerLink="/issues/new">New issue</a></p>
+<app-status-filter [status]="selectedStatus" (filterChanged)="onFilterChanged($event)" ></app-status-filter>
 <div class="list-group">
-  <a *ngFor="let issue of issues"
+  <a *ngFor="let issue of filteredIssues"
     href="#"
     class="list-group-item list-group-item-action"
     [class.list-group-item-danger]="issue.status === 'NEW'"

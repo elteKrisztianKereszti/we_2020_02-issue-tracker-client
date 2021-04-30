@@ -38,10 +38,24 @@ export class IssueListComponent implements OnInit {
       status: 'DONE'
     },
   ]
+  public selectedStatus: string;
+  public filteredIssues: Issue[];
 
   constructor() { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
+    this.selectedStatus = '';
+    this.filter();
   }
 
+  public onFilterChanged(newStatus: string) {
+    this.selectedStatus = newStatus;
+    this.filter();
+  }
+
+  public filter(): void {
+    this.filteredIssues = this.selectedStatus ?
+      this.issues.filter((i: Issue) => i.status === this.selectedStatus) :
+      this.issues;
+  }
 }
