@@ -41,4 +41,9 @@ export class IssueService {
   public getIssues(): Issue[] {
     return this.issues;
   }
+
+  public getIssue(id: number): Issue {
+    return this.issues.find((i: Issue) => i.id === id);
+  }
+
 }
