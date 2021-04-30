@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Issue tracker</a>
+  <a class="navbar-brand" href="#" routerLink="/">Issue tracker</a>
   <button
     class="navbar-toggler"
     type="button"
@@ -17,20 +17,14 @@
     [ngbCollapse]="isCollapsed">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="#">List issues</a>
+        <a class="nav-link" href="#" routerLink="/issues">List issues</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">New issue</a>
+        <a class="nav-link" href="#" routerLink="/issues/new">New issue</a>
       </li>
     </ul>
   </div>
 </nav>
 
-<app-main-page></app-main-page>
-
-<app-issue-list></app-issue-list>
-
-<app-issue-detail></app-issue-detail>
-
-<app-issue-form></app-issue-form>
+<router-outlet></router-outlet>
 
