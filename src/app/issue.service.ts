@@ -57,4 +57,8 @@ export class IssueService {
     this.issues.push(newIssue);
     return newIssue;
   }
+
+  public deleteIssue(id: number): void {
+    this.issues = this.issues.filter((i:Issue) => i.id !== id);
+  }
 }
