@@ -33,4 +33,8 @@ export class IssueListComponent implements OnInit {
       this.issues.filter((i: Issue) => i.status === this.selectedStatus) :
       this.issues;
   }
+
+  public onSaveChanges(modifiedIssue: Issue): void {
+    this.issueService.updateIssue(this.selectedIssue.id, modifiedIssue);
+  }
 }

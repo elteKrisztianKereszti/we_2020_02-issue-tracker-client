@@ -2,7 +2,7 @@
 
 <h2 class="display-2 my-3">New issue</h2>
 
-<form action="" [formGroup]="issueForm">
+<form action="" [formGroup]="issueForm" (ngSubmit)="onSubmit()" >
   <div class="form-group">
     <label for="title">Title</label>
     <input
@@ -62,5 +62,5 @@
     <div class="invalid-feedback">Please provide a status!</div>
   </div>
 
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary" [disabled]="issueForm.invalid" >Submit</button>
 </form>

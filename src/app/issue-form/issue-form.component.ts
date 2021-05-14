@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Issue } from '../issue';
 
@@ -30,9 +30,17 @@ export class IssueFormComponent implements OnChanges {
     return this.issueForm.get('status');
   }
 
+  @Output() saveChanges: EventEmitter<Issue> = new EventEmitter<Issue>();
+
   constructor(private formBuilder: FormBuilder) { }
 
   public ngOnChanges(): void {
     this.issueForm.patchValue(this.issue);
+  }
+
+  public onSubmit(): void {
+    if (this.issueForm.valid) {
+      this.saveChanges.emit(this.issueForm.value);
+    }
   }
 }

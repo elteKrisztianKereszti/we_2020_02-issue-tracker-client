@@ -32,4 +32,4 @@
   </a>
 </div>
 
-<app-issue-form [issue]="selectedIssue"></app-issue-form>
+<app-issue-form [issue]="selectedIssue" (saveChanges)="onSaveChanges($event)"></app-issue-form>

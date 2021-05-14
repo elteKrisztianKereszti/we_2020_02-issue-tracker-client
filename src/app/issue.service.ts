@@ -46,4 +46,9 @@ export class IssueService {
     return this.issues.find((i: Issue) => i.id === id);
   }
 
+  public updateIssue(id: number, modifiedIssue: Issue): Issue {
+    const issue = this.getIssue(id);
+    Object.assign(issue, modifiedIssue);
+    return issue;
+  }
 }
