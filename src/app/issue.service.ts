@@ -51,4 +51,10 @@ export class IssueService {
     Object.assign(issue, modifiedIssue);
     return issue;
   }
+
+  public addIssue(newIssue: Issue): Issue {
+    newIssue.id = + new Date();
+    this.issues.push(newIssue);
+    return newIssue;
+  }
 }

@@ -10,6 +10,7 @@ import { IssueDetailComponent } from './issue-detail/issue-detail.component';
 import { IssueFormComponent } from './issue-form/issue-form.component';
 import { StatusFilterComponent } from './status-filter/status-filter.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { IssueEditComponent } from './issue-edit/issue-edit.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     IssueListComponent,
     IssueDetailComponent,
     IssueFormComponent,
-    StatusFilterComponent
+    StatusFilterComponent,
+    IssueEditComponent
   ],
   imports: [
     BrowserModule,
