@@ -1,1 +1,3 @@
+<h2 class="display-2 my-3">{{ issue ? 'Edit' : 'New' }} issue</h2>
+
 <app-issue-form [issue]="issue" (saveChanges)="onSaveChanges($event)"></app-issue-form>
