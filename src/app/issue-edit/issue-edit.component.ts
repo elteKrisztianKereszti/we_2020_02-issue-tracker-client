@@ -17,20 +17,20 @@ export class IssueEditComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router) { }
 
-  public ngOnInit(): void {
+  public async ngOnInit(): Promise<void> {
     let id = parseInt(this.route.snapshot.paramMap.get('id'));
     if (id) {
-      this.issue = this.issueService.getIssue(id);
+      this.issue = await this.issueService.getIssue(id);
     }
   }
 
-  public onSaveChanges(modifiedIssue: Issue): void {
+  public async onSaveChanges(modifiedIssue: Issue): Promise<void> {
     if (this.issue) {
-      this.issueService.updateIssue(this.issue.id, modifiedIssue);
+      await this.issueService.updateIssue(this.issue.id, modifiedIssue);
       this.location.back();
     }
     else {
-      this.issueService.addIssue(modifiedIssue);
+      await this.issueService.addIssue(modifiedIssue);
       this.router.navigate(['/issues']);
     }
   }

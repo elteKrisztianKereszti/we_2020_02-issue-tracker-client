@@ -15,10 +15,10 @@ export class IssueListComponent implements OnInit {
   public selectedIssue: Issue;
 
   constructor(private issueService: IssueService) {
-    this.issues = issueService.getIssues();
   }
 
-  public ngOnInit(): void {
+  public async ngOnInit(): Promise<void> {
+    this.issues = await this.issueService.getIssues();
     this.selectedStatus = '';
     this.filter();
   }

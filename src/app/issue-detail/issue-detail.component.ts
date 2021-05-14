@@ -15,13 +15,15 @@ export class IssueDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router) { }
 
-  public ngOnInit(): void {
+  public async ngOnInit(): Promise<void> {
     let id = parseInt(this.route.snapshot.paramMap.get('id'));
-    this.issue = this.issueService.getIssue(id);
+    if (id) {
+      this.issue = await this.issueService.getIssue(id);
+    }
   }
 
-  public deleteIssue(): void {
-    this.issueService.deleteIssue(this.issue.id)
+  public async deleteIssue(): Promise<void> {
+    await this.issueService.deleteIssue(this.issue.id)
     this.router.navigate(['/issues']);
   }
 }
