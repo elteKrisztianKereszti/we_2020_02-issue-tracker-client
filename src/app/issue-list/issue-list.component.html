@@ -3,15 +3,16 @@
 <app-status-filter [status]="selectedStatus" (filterChanged)="onFilterChanged($event)" ></app-status-filter>
 <div class="list-group">
   <a *ngFor="let issue of filteredIssues"
-    href="#"
     class="list-group-item list-group-item-action"
     [class.list-group-item-danger]="issue.status === 'NEW'"
     [class.list-group-item-warning]="issue.status === 'DOING'"
     [class.list-group-item-success]="issue.status === 'DONE'"
-    [routerLink]="['/issues', issue.id ]"
+    (click)="selectedIssue = issue"
   >
     <div class="d-flex w-100 justify-content-between align-items-center">
-      <h5 class="mb-1">{{ issue.title }}</h5>
+      <h5 class="mb-1"
+        [routerLink]="['/issues', issue.id ]"
+      >{{ issue.title }}</h5>
       <span class="badge"
         [class.badge-danger]="issue.status === 'NEW'"
         [class.badge-warning]="issue.status === 'DOING'"
@@ -30,3 +31,5 @@
     </small>
   </a>
 </div>
+
+<app-issue-form [issue]="selectedIssue"></app-issue-form>

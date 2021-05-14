@@ -12,6 +12,8 @@ export class IssueListComponent implements OnInit {
   public selectedStatus: string;
   public filteredIssues: Issue[];
 
+  public selectedIssue: Issue;
+
   constructor(private issueService: IssueService) {
     this.issues = issueService.getIssues();
   }
